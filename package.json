@@ -1,0 +1,14 @@
+{
+  "name": "AwesomeMusic-front",
+  "scripts": {
+    "dev": "nuxt"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.5.4",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "nuxt": "^2.8.1"
+  },
+  "devDependencies": {
+    "uikit": "^3.1.6"
+  }
+}
