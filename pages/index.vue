@@ -1,7 +1,7 @@
 <template>
   <div id="latest">
     <div uk-grid class="uk-child-width-1-3@s">
-      <div v-for="latest in latests" v-bind:key="latest.id">
+      <div v-for="post in $store.getters['posts/getPosts']" v-bind:key="post.id">
         <!-- 投稿カード -->
         <div class="uk-card uk-card-small uk-card-default uk-column-span">
           <!-- Header -->
@@ -12,19 +12,14 @@
               </div>
               <div class="uk-width-expand">
                 <h4 class="uk-card-title uk-margin-remove-bottom">Title</h4>
-                <p class="uk-text-meta uk-margin-remove-top">{{ latest.url }}</p>
+                <p class="uk-text-meta uk-margin-remove-top">{{ post.url }}</p>
               </div>
             </div>
           </div>
           <!-- Body -->
           <div class="uk-card-body">
             <div class="uk-card-badge uk-label">test</div>
-            <p>{{ latest.message }}</p>
-          </div>
-          <!-- Body -->
-          <div class="uk-card-body">
-            <div class="uk-card-badge uk-label">test</div>
-            <p>{{ latest.tags }}</p>
+            <p>{{ post.message }}</p>
           </div>
           <!-- Footer -->
           <div class="uk-card-footer">
@@ -32,7 +27,6 @@
               <a href="#" class="uk-button uk-button-text">5 Comments</a>
             </div>
           </div>
-          <p>store: {{ posts }}</p>
         </div>
       </div>
     </div>
@@ -40,28 +34,21 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   data: function() {
     return {
-      latests: []
+      posts: []
     };
   },
-  computed: {
-    posts() {
-      return this.$store.state.posts;
-    }
-  },
   created() {
-    return this.$axios
-      .get("http://192.168.33.200:8080/v1/posts")
-      .then(res => (this.latests = res.data));
+    return this.fetchPosts();
   },
   methods: {
-    SearchByPosts() {
-      this.$axios
-        .get("http://192.168.33.200:8080/v1/posts")
-        .then(res => (this.latests = res.data));
-    }
+    ...mapActions({
+      fetchPosts: "posts/fetchPosts"
+    })
   }
 };
 </script>

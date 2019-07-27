@@ -1,7 +1,7 @@
 <template>
   <div id="users">
     <div uk-grid class="uk-child-width-1-3@s">
-      <div v-for="user in users" v-bind:key="user.id">
+      <div v-for="user in $store.getters['users/getUsers']" v-bind:key="user.id">
         <!-- 投稿カード -->
         <div class="uk-card uk-card-default uk-card-small">
           <div class="uk-card-header">
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   data: function() {
     return {
@@ -28,9 +30,12 @@ export default {
     };
   },
   created() {
-    return this.$axios
-      .get("http://192.168.33.200:8080/v1/users")
-      .then(res => (this.users = res.data));
+    return this.fetchUsers();
+  },
+  methods: {
+    ...mapActions({
+      fetchUsers: "users/fetchUsers"
+    })
   }
 };
 </script>

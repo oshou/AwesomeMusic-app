@@ -1,7 +1,7 @@
 <template>
   <div id="posts">
-    <div uk-grid class="uk-child-width-1-2@s">
-      <div v-for="post in posts" v-bind:key="post.id">
+    <div uk-grid class="uk-child-width-1-3@s">
+      <div v-for="post in $store.getters['posts/getPosts']" v-bind:key="post.id">
         <!-- 投稿カード -->
         <div class="uk-card uk-card-small uk-card-default uk-column-span">
           <!-- Header -->
@@ -21,11 +21,6 @@
             <div class="uk-card-badge uk-label">test</div>
             <p>{{ post.message }}</p>
           </div>
-          <!-- Body -->
-          <div class="uk-card-body">
-            <div class="uk-card-badge uk-label">test</div>
-            <p>{{ post.tags }}</p>
-          </div>
           <!-- Footer -->
           <div class="uk-card-footer">
             <div id="modal">
@@ -39,6 +34,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   data: function() {
     return {
@@ -46,9 +43,12 @@ export default {
     };
   },
   created() {
-    return this.$axios
-      .get("http://192.168.33.200:8080/v1/posts")
-      .then(res => (this.posts = res.data));
+    return this.fetchPosts();
+  },
+  methods: {
+    ...mapActions({
+      fetchPosts: "posts/fetchPosts"
+    })
   }
 };
 </script>
