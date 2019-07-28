@@ -15,15 +15,16 @@ export const getters = {
 // 状態の更新処理
 export const actions = {
   async fetchTags({ commit }) {
-    const res = await axios.get("http://192.168.33.200:8080/v1/tags");
-    console.log("debug: fetchTags done");
+    const res = await axios.get("/v1/tags");
     commit("setTags", res.data);
   },
-  async fetchTagsFiltered({ commit }, q) {
-    const res = await axios.get(
-      "http://192.168.33.200:8080/v1/search?q=" + q + "&type=tag"
-    );
-    console.log("debug: fetchTagsFiltered done");
+  async fetchTagsFiltered({ commit }, query) {
+    const res = await axios.get("/v1/search", {
+      params: {
+        q: query,
+        type: tag
+      }
+    });
     commit("setTags", res.data);
   }
 };

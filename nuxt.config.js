@@ -27,5 +27,8 @@ export default {
   plugins: [{ src: "~/plugins/uikit.js", ssr: false }],
   modules: ["@nuxtjs/axios"],
   // Server
-  axios: {}
+  axios: {
+    baseURL: process.env.BASE_URL || "http://192.168.33.200:8080",
+    browserBaseURL: process.env.BASE_URL || "http://192.168.33.200:8080"
+  }
 };

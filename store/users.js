@@ -15,15 +15,16 @@ export const getters = {
 // 状態の更新処理
 export const actions = {
   async fetchUsers({ commit }) {
-    const res = await axios.get("http://192.168.33.200:8080/v1/users");
-    console.log("debug: fetchUsers done");
+    const res = await axios.get("/v1/users");
     commit("setUsers", res.data);
   },
-  async fetchUsersFiltered({ commit }, q) {
-    const res = await axios.get(
-      "http://192.168.33.200:8080/v1/search?q=" + q + "&type=user"
-    );
-    console.log("debug: fetchUsersFiltered done");
+  async fetchUsersFiltered({ commit }, query) {
+    const res = await axios.get("/v1/search", {
+      params: {
+        q: query,
+        type: user
+      }
+    });
     commit("setUsers", res.data);
   }
 };
