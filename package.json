@@ -4,9 +4,14 @@
     "dev": "nuxt"
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.8.1",
     "@nuxtjs/axios": "^5.5.4",
+    "auth0-lock": "^11.17.1",
+    "bulma": "^0.7.5",
     "hard-source-webpack-plugin": "^0.13.1",
-    "nuxt": "^2.8.1"
+    "jwt-decode": "^2.2.0",
+    "nuxt": "^2.8.1",
+    "query-string": "^6.8.2"
   },
   "devDependencies": {
     "uikit": "^3.1.6"

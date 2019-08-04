@@ -48,6 +48,10 @@
   padding: 0px;
 }
 
+.uk-icon {
+  padding-right: 7px;
+}
+
 #search form {
   border: 1px;
   border-radius: 20px;

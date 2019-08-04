@@ -1,8 +1,5 @@
 export default {
   mode: "spa",
-  /*
-   ** Headers of the page
-   */
   head: {
     title: process.env.npm_package_name || "",
     meta: [
@@ -20,12 +17,15 @@ export default {
     vendor: ["element-ui"]
   },
   server: {
-    port: 8081, // デフォルト: 3000
-    host: "0.0.0.0" // デフォルト: localhost
+    host: "0.0.0.0",
+    port: 8081
   },
   css: ["uikit/dist/css/uikit.css"],
-  plugins: [{ src: "~/plugins/uikit.js", ssr: false }],
-  modules: ["@nuxtjs/axios"],
-  // Server
-  axios: {}
+  plugins: [{ src: "@/plugins/uikit.js", ssr: false }, "@/plugins/auth0.js"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/auth", "@nuxtjs/bulma"],
+  axios: {},
+  auth0: {
+    domain: "awesome-music.auth0.com",
+    client_id: "ReBHBsldURl6lQhETGg5SWOU95et9Rw8"
+  }
 };
