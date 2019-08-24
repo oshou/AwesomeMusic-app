@@ -13,19 +13,16 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
-  build: {
-    vendor: ["element-ui"]
+  css: ["uikit/dist/css/uikit.css"],
+  plugins: [{ src: "@/plugins/uikit.js", ssr: false }, "@/plugins/auth0.js"],
+  modules: ["@nuxtjs/axios"],
+  axios: {},
+  auth0: {
+    domain: "awesome-music.auth0.com",
+    clientID: "ReBHBsldURl6lQhETGg5SWOU95et9Rw8"
   },
   server: {
     host: "0.0.0.0",
     port: 8081
-  },
-  css: ["uikit/dist/css/uikit.css"],
-  plugins: [{ src: "@/plugins/uikit.js", ssr: false }, "@/plugins/auth0.js"],
-  modules: ["@nuxtjs/axios", "@nuxtjs/auth", "@nuxtjs/bulma"],
-  axios: {},
-  auth0: {
-    domain: "awesome-music.auth0.com",
-    client_id: "ReBHBsldURl6lQhETGg5SWOU95et9Rw8"
   }
 };

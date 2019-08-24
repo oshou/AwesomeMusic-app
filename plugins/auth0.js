@@ -6,7 +6,7 @@ const config = nuxtConfig.auth0;
 
 class Auth0Util {
   showLock(container) {
-    const lock = new Auth0Lock(config.client_id, config.domain, {
+    const lock = new Auth0Lock(config.clientID, config.domain, {
       container,
       closable: false,
       auth: {
