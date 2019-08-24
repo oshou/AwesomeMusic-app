@@ -1,13 +1,14 @@
 {
   "name": "AwesomeMusic-front",
   "scripts": {
-    "dev": "nuxt"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/auth": "^4.8.1",
     "@nuxtjs/axios": "^5.5.4",
     "auth0-lock": "^11.17.1",
-    "bulma": "^0.7.5",
     "hard-source-webpack-plugin": "^0.13.1",
     "jwt-decode": "^2.2.0",
     "nuxt": "^2.8.1",
