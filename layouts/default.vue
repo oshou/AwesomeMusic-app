@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import Header from "~/components/Header";
-import SideNav from "~/components/SideNav";
-import Footer from "~/components/Footer";
+import Header from "@/components/Header";
+import SideNav from "@/components/SideNav";
+import Footer from "@/components/Footer";
 
 export default {
   name: "default",

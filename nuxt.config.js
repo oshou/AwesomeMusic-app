@@ -1,8 +1,5 @@
 export default {
   mode: "spa",
-  /*
-   ** Headers of the page
-   */
   head: {
     title: process.env.npm_package_name || "",
     meta: [
@@ -16,16 +13,18 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
-  build: {
-    vendor: ["element-ui"]
+  css: [{ src: "@/node_modules/uikit/dist/css/uikit.css" }],
+  plugins: [{ src: "@/plugins/uikit.js", ssr: false }, "@/plugins/auth0.js"],
+  modules: ["@nuxtjs/axios"],
+  axios: {
+    baseURL: process.env.BASE_URL || "http://192.168.33.200:8080"
+  },
+  auth0: {
+    domain: process.env.AUTH0_DOMAIN,
+    clientID: process.env.AUTH0_CLIENT_ID
   },
   server: {
-    port: 8081, // デフォルト: 3000
-    host: "0.0.0.0" // デフォルト: localhost
-  },
-  css: ["uikit/dist/css/uikit.css"],
-  plugins: [{ src: "~/plugins/uikit.js", ssr: false }],
-  modules: ["@nuxtjs/axios"],
-  // Server
-  axios: {}
+    host: "0.0.0.0",
+    port: 3000
+  }
 };

@@ -15,14 +15,12 @@ export const getters = {
 // 状態の更新処理のコミット
 export const actions = {
   async fetchPosts({ commit }) {
-    const res = await axios.get("http://192.168.33.200:8080/v1/posts");
+    const res = await axios.get("/v1/posts");
     console.log("debug: fetchPosts done");
     commit("setPosts", res.data);
   },
   async fetchPostsFiltered({ commit }, q) {
-    const res = await axios.get(
-      "http://192.168.33.200:8080/v1/search" + q + "&type=title"
-    );
+    const res = await axios.get("/v1/search" + q + "&type=title");
     console.log("debug: fetchPostsFiltered done");
     commit("setPosts", res.data);
   }
