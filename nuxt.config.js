@@ -17,11 +17,11 @@ export default {
   plugins: [{ src: "@/plugins/uikit.js", ssr: false }, "@/plugins/auth0.js"],
   modules: ["@nuxtjs/axios"],
   axios: {
-    baseUrl: process.env.BASE_URL || "http://localhost:3000"
+    baseURL: process.env.BASE_URL || "http://192.168.33.200:8080"
   },
   auth0: {
-    domain: "awesome-music.auth0.com",
-    clientID: "ReBHBsldURl6lQhETGg5SWOU95et9Rw8"
+    domain: process.env.AUTH0_DOMAIN,
+    clientID: process.env.AUTH0_CLIENT_ID
   },
   server: {
     host: "0.0.0.0",
