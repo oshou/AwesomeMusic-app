@@ -13,7 +13,7 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
-  css: ["uikit/dist/css/uikit.css"],
+  css: [{ src: "@/node_modules/uikit/dist/css/uikit.css" }],
   plugins: [{ src: "@/plugins/uikit.js", ssr: false }, "@/plugins/auth0.js"],
   modules: ["@nuxtjs/axios"],
   axios: {},
@@ -23,6 +23,6 @@ export default {
   },
   server: {
     host: "0.0.0.0",
-    port: 8081
+    port: 3000
   }
 };
