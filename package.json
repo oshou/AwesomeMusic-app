@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.5.4",
-    "@nuxtjs/dotenv": "^1.4.0",
     "auth0-lock": "^11.17.1",
     "hard-source-webpack-plugin": "^0.13.1",
     "jwt-decode": "^2.2.0",

@@ -9,6 +9,7 @@ lerna-debug.log*
 # Dependencies
 node_modules/
 package-lock.json
+yarn.lock
 .npm
 
 # nuxt.js build output
@@ -16,3 +17,6 @@ package-lock.json
 
 # nuxt.js generate output
 dist
+
+# Temporary config
+.env
