@@ -1,4 +1,4 @@
-FROM node:10-alpine as builder
+FROM node:10-alpine AS builder
 WORKDIR /app
 ENV NODE_ENV=production
 RUN  apk add --no-cache curl git \
@@ -13,7 +13,7 @@ RUN yarn --frozen-lockfile --non-interactive && node-clean
 ADD . ./
 RUN yarn build
 
-FROM node:10-alpine
+FROM node:10-alpine AS runtime
 WORKDIR /app
 ENV HOST=0.0.0.0
 ADD package.json ./
