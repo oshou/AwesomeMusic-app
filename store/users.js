@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const API_URL = "http://192.168.33.200:8080";
+
 // 状態の定義
 export const state = () => ({
   users: []
@@ -15,14 +17,12 @@ export const getters = {
 // 状態の更新処理
 export const actions = {
   async fetchUsers({ commit }) {
-    const res = await axios.get("http://192.168.33.200:8080/v1/users");
+    const res = await axios.get(API_URL + "/v1/users");
     console.log("debug: fetchUsers done");
     commit("setUsers", res.data);
   },
   async fetchUsersFiltered({ commit }, q) {
-    const res = await axios.get(
-      "http://192.168.33.200:8080/v1/search?q=" + q + "&type=user"
-    );
+    const res = await axios.get(API_URL + "/v1/search?q=" + q + "&type=user");
     console.log("debug: fetchUsersFiltered done");
     commit("setUsers", res.data);
   }

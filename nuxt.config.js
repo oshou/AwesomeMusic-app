@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 export default {
   mode: "spa",
   head: {
@@ -26,7 +28,9 @@ export default {
       };
     }
   },
-  axios: {},
+  axios: {
+    baseURL: process.env.API_URL
+  },
   auth0: {
     domain: process.env.AUTH0_DOMAIN,
     clientID: process.env.AUTH0_CLIENT_ID
