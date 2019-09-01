@@ -15,10 +15,18 @@ export default {
   },
   css: [{ src: "@/node_modules/uikit/dist/css/uikit.css" }],
   plugins: [{ src: "@/plugins/uikit.js", ssr: false }, "@/plugins/auth0.js"],
-  modules: ["@nuxtjs/axios"],
-  axios: {
-    baseURL: process.env.BASE_URL || "http://192.168.33.200:8080"
+  modules: ["@nuxtjs/axios", "@nuxtjs/dotenv"],
+  env: {
+    API_URL: process.env.API_URL
   },
+  build: {
+    extend(config, ctx) {
+      config.node = {
+        fs: "empty" // Backend APIを使うのに必要
+      };
+    }
+  },
+  axios: {},
   auth0: {
     domain: process.env.AUTH0_DOMAIN,
     clientID: process.env.AUTH0_CLIENT_ID
