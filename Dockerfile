@@ -11,15 +11,16 @@ RUN  apk add --no-cache curl git \
 ADD package.json ./
 RUN yarn --frozen-lockfile --non-interactive && node-clean
 ADD . ./
-RUN yarn build
-
-FROM node:10-alpine AS runtime
-WORKDIR /app
-ENV HOST=0.0.0.0
-ADD package.json ./
-ADD nuxt.config.js ./
-COPY --from=builder ./app/node_modules ./node_modules/
-COPY --from=builder ./app/.nuxt ./.nuxt/
-COPY --from=builder ./app/dist ./dist/
-EXPOSE 3000
-CMD ["yarn", "start"]
+CMD ["yarn","dev"]
+#RUN yarn build
+#
+#FROM node:10-alpine AS runtime
+#WORKDIR /app
+#ENV HOST=0.0.0.0
+#ADD package.json ./
+#ADD nuxt.config.js ./
+#COPY --from=builder ./app/node_modules ./node_modules/
+#COPY --from=builder ./app/.nuxt ./.nuxt/
+#COPY --from=builder ./app/dist ./dist/
+#EXPOSE 3000
+#CMD ["yarn", "start"]

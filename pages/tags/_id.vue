@@ -1,5 +1,8 @@
 <template>
-  <div class="uk-container-expand" id="latest">
+  <div class="uk-container-expand" id="posts">
+    <div uk-grid class="uk-child-width-expand">
+      <h2>tag_id: {{ $route.params.id }}の投稿</h2>
+    </div>
     <div uk-grid class="uk-child-width-1-2@s">
       <div v-for="post in $store.getters['posts/getPosts']" v-bind:key="post.id">
         <div class="uk-card uk-card-small uk-card-default uk-column-span">
@@ -18,8 +21,16 @@
             <p>{{ post.message }}</p>
           </div>
           <div class="uk-card-footer">
-            <div id="modal">
-              <a href="#" class="uk-button uk-button-text">5 Comments</a>
+            <div class="uk-width-auto">
+              <a href="#" class="uk-button">
+                <span uk-icon="icon: comments; ratio: 1.0"></span>
+              </a>
+              <a href="#" class="uk-button">
+                <span uk-icon="icon: comments; ratio: 1.0"></span>
+              </a>
+              <a href="#" class="uk-button">
+                <span uk-icon="icon: plus; ratio: 1.0"></span>
+              </a>
             </div>
           </div>
         </div>
@@ -38,11 +49,11 @@ export default {
     };
   },
   created() {
-    return this.fetchPosts();
+    return this.fetchPostsByTagId(this.$route.params.id);
   },
   methods: {
     ...mapActions({
-      fetchPosts: "posts/fetchPosts"
+      fetchPostsByTagId: "posts/fetchPostsByTagId"
     })
   }
 };

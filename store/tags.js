@@ -21,7 +21,7 @@ export const actions = {
     console.log("debug: fetchTags done");
     commit("setTags", res.data);
   },
-  async fetchTagsFiltered({ commit }, q) {
+  async fetchTagsById({ commit }, q) {
     const res = await axios.get(API_URL + "/v1/search?q=" + q + "&type=tag");
     console.log("debug: fetchTagsFiltered done");
     commit("setTags", res.data);

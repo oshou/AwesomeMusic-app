@@ -14,16 +14,21 @@ export const getters = {
   }
 };
 
-// 状態の更新処理のコミット
+// 状態の更新処理
 export const actions = {
   async fetchPosts({ commit }) {
     const res = await axios.get(API_URL + "/v1/posts");
     console.log("debug: fetchPosts done");
     commit("setPosts", res.data);
   },
-  async fetchPostsFiltered({ commit }, q) {
-    const res = await axios.get(API_URL + "/v1/search" + q + "&type=title");
-    console.log("debug: fetchPostsFiltered done");
+  async fetchPostsByTagId({ commit }, q) {
+    const res = await axios.get(API_URL + "/v1/search?type=tag_id&q=" + q);
+    console.log("debug: fetchPostsByTagId done");
+    commit("setPosts", res.data);
+  },
+  async fetchPostsByUserId({ commit }, q) {
+    const res = await axios.get(API_URL + "/v1/search?type=user_id&q=" + q);
+    console.log("debug: fetchPostsByUserId done");
     commit("setPosts", res.data);
   },
   async addPost({ commit }, data) {
@@ -38,7 +43,7 @@ export const actions = {
   }
 };
 
-// 状態の更新処理
+// 状態の更新処理のコミット
 export const mutations = {
   setPosts(state, posts) {
     state.posts = posts;

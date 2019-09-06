@@ -1,5 +1,10 @@
 <template>
-  <div class="uk-container-expand" id="latest">
+  <div class="uk-container-expand" id="posts">
+    <div uk-grid class="uk-child-width-expand">
+      <h2>user_id: {{ $route.params.id }}の投稿</h2>
+      <br />
+      <hr />
+    </div>
     <div uk-grid class="uk-child-width-1-2@s">
       <div v-for="post in $store.getters['posts/getPosts']" v-bind:key="post.id">
         <div class="uk-card uk-card-small uk-card-default uk-column-span">
@@ -38,11 +43,11 @@ export default {
     };
   },
   created() {
-    return this.fetchPosts();
+    return this.fetchPostsByUserId(this.$route.params.id);
   },
   methods: {
     ...mapActions({
-      fetchPosts: "posts/fetchPosts"
+      fetchPostsByUserId: "posts/fetchPostsByUserId"
     })
   }
 };

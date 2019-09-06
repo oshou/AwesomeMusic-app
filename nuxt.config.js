@@ -23,6 +23,8 @@ export default {
   },
   build: {
     extend(config, ctx) {
+      //const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
+      //config.plugins.push(new HardSourceWebpackPlugin());
       config.node = {
         fs: "empty" // Backend APIを使うのに必要
       };
