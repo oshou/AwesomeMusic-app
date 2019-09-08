@@ -6,44 +6,20 @@
     <div uk-grid class="uk-child-width-1-2@s">
       <form class="uk-form-stacked" @submit.prevent="doPost">
         <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-select">Title</label>
-          <input
-            type="text"
-            v-model="formInput.title"
-            name="title"
-            class="uk-input"
-            id="form-stacked-text"
-          />
+          <label class="uk-form-label">Title</label>
+          <input type="text" v-model="formInput.title" name="title" class="uk-input" />
         </div>
         <div>
-          <label class="uk-form-label" for="form-stacked-select">URL</label>
-          <input
-            type="text"
-            v-model="formInput.url"
-            name="url"
-            class="uk-input"
-            id="form-stacked-text"
-          />
+          <label class="uk-form-label">URL</label>
+          <input type="text" v-model="formInput.url" name="url" class="uk-input" />
         </div>
         <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-select">Tags</label>
-          <input
-            type="text"
-            v-model="formInput.tags"
-            name="tags"
-            class="uk-input"
-            id="form-stacked-text"
-          />
+          <label class="uk-form-label">Tags</label>
+          <input type="text" v-model="formInput.tags" name="tags" class="uk-input" />
         </div>
         <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-select">message</label>
-          <input
-            type="text"
-            v-model="formInput.message"
-            name="message"
-            class="uk-input"
-            id="form-stacked-text"
-          />
+          <label class="uk-form-label">message</label>
+          <input type="text" v-model="formInput.message" name="message" class="uk-input" />
         </div>
         <div class="uk-margin">
           <button type="submit" class="uk-button uk-button-default">
@@ -103,9 +79,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.uk-input {
-  border: 10px;
-}
-</style>
