@@ -1,37 +1,40 @@
 <template>
   <div id="header">
     <div class="uk-grid">
-      <div class="uk-width-1-2@m uk-text-left">
+      <div id="logo">
         <nuxt-link to="/">
           <img
             src="../assets/logo_am_w450_h130.png"
-            width="450"
-            height="130"
+            height="115.6"
+            width="400"
             alt="AwesomeMusic-あなたの特別な1曲を共有しよう"
           />
         </nuxt-link>
       </div>
-      <div class="uk-width-1-2@m uk-text-right">
-        <div id="logout" v-if="loggedIn()">
-          <button class="uk-button uk-button-primary">
-            <span uk-icon="sign-out"></span> Login
+      <div id="logout" v-if="loggedIn()">
+        <button class="uk-button uk-button-primary">
+          <span uk-icon="sign-out"></span> Login
+        </button>
+      </div>
+      <div v-else id="login">
+        <nuxt-link to="/login">
+          <button id="login-button" class="uk-button uk-button-primary">
+            <span uk-icon="sign-in"></span> Login
           </button>
-        </div>
-        <div v-else id="login">
-          <nuxt-link to="/login">
-            <button id="login-button" class="uk-button uk-button-primary">
-              <span uk-icon="sign-in"></span> Login
-            </button>
-          </nuxt-link>
-        </div>
+        </nuxt-link>
       </div>
     </div>
   </div>
 </template>
 
 <style>
-#header {
+#header div {
   height: 130px;
+  display: flex;
+  /* 垂直方向の配置 */
+  justify-content: space-between;
+  /* 水平方向の配置 */
+  align-items: center;
 }
 </style>
 

@@ -31,9 +31,9 @@ export const actions = {
         console.error(err);
       });
   },
-  async fetchPostsByTagId({ commit }, q) {
+  async fetchPostsByUserId({ commit }, q) {
     await axios
-      .get(API_URL + "/v1/search?type=tag_id&q=" + q)
+      .get(API_URL + "/v1/search?type=user_id&q=" + q)
       .then(res => {
         console.log(res.data);
         commit("setPosts", res.data);
@@ -42,9 +42,9 @@ export const actions = {
         console.error(err);
       });
   },
-  async fetchPostsByUserId({ commit }, q) {
+  async fetchPostsByTagId({ commit }, q) {
     await axios
-      .get(API_URL + "/v1/search?type=user_id&q=" + q)
+      .get(API_URL + "/v1/search?type=tag_id&q=" + q)
       .then(res => {
         console.log(res.data);
         commit("setPosts", res.data);

@@ -1,6 +1,6 @@
 <template>
   <div class="uk-container-expand" id="latest">
-    <div uk-grid class="uk-child-width-1-2@s">
+    <div uk-grid class="uk-child-width-1-2">
       <div v-for="post in $store.getters['posts/getPosts']" v-bind:key="post.id">
         <div class="uk-card uk-card-small uk-card-default uk-column-span">
           <div class="uk-card-header">
@@ -34,6 +34,12 @@
     </div>
   </div>
 </template>
+
+<style>
+.uk-card {
+  border-radius: 20px;
+}
+</style>
 
 <script>
 import { mapActions } from "vuex";

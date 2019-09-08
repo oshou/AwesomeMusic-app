@@ -3,9 +3,14 @@
     <div class="uk-align-left">
       <!-- 検索窓-->
       <div id="search">
-        <form class="uk-search uk-search-navbar">
+        <form @submit.prevent="search" class="uk-search uk-search-navbar">
           <span uk-search-icon></span>
-          <input class="uk-search-input" placeholder="検索したいキーワードを入力" @keyup.enter.native="search()" />
+          <input
+            class="uk-search-input"
+            v-model="formInput.keyword"
+            placeholder="検索したいキーワードを入力"
+            @keyup.enter.native="search('formInput')"
+          />
         </form>
       </div>
 
@@ -42,11 +47,18 @@
 import { mapActions } from "vuex";
 
 export default {
+  data: function() {
+    return {
+      formInput: {
+        keyword: ""
+      }
+    };
+  },
   methods: {
-    search() {
+    async search() {
       this.$router.push({
-        path: "/search",
-        query: { q: $search }
+        path: "/v1/search",
+        query: { q: this.formInput.keyword }
       });
     }
   }
@@ -70,7 +82,7 @@ export default {
 #search form {
   border: 1px;
   border-radius: 20px;
-  background-color: rgb(128, 119, 119);
+  background-color: whitesmoke;
   width: 260px;
   margin-bottom: 15px;
 }
