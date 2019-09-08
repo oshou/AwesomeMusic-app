@@ -103,3 +103,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.uk-input {
+  border: 10px;
+}
+</style>

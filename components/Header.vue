@@ -3,7 +3,12 @@
     <div class="uk-grid">
       <div class="uk-width-1-2@m uk-text-left">
         <nuxt-link to="/">
-          <img src="../assets/logo_am_w400.png" alt="AwesomeMusic-あなたの特別な1曲を共有しよう" />
+          <img
+            src="../assets/logo_am_w450_h130.png"
+            width="450"
+            height="130"
+            alt="AwesomeMusic-あなたの特別な1曲を共有しよう"
+          />
         </nuxt-link>
       </div>
       <div class="uk-width-1-2@m uk-text-right">

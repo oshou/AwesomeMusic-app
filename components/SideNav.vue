@@ -5,12 +5,7 @@
       <div id="search">
         <form class="uk-search uk-search-navbar">
           <span uk-search-icon></span>
-          <input
-            class="uk-search-input"
-            type="search"
-            placeholder="検索したいキーワードを入力"
-            @keyup.enter.native="search()"
-          />/>
+          <input class="uk-search-input" placeholder="検索したいキーワードを入力" @keyup.enter.native="search()" />
         </form>
       </div>
 

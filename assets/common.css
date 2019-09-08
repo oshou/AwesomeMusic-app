@@ -13,9 +13,19 @@
   box-sizing: border-box;
 }
 
+#app {
+  font-family: "Lato", "Noto Sans JP", "游ゴシック Medium", "游ゴシック体",
+    "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN",
+    "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+    "MS PGothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: left;
+}
+
 #header {
   width: 100%;
-  height: 130px;
+  height: 150%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,9 +52,6 @@
   box-shadow: 1px;
   border: 10px;
   margin: 1px;
-  /*
-  border-color: darkslategrey;
-  */
   border-color: red;
 }
 
@@ -83,7 +90,7 @@
   margin-top: 15px;
 }
 
-#add_post {
+#new_post {
   margin-top: 50px;
 }
 
