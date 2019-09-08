@@ -5,8 +5,7 @@ const API_URL = "http://192.168.33.200:8080";
 // 状態の定義
 export const state = () => ({
   tags: [],
-  newTag: [],
-  newTagAttach: []
+  newTag: []
 });
 
 // 状態の参照
@@ -32,7 +31,7 @@ export const actions = {
         commit("setTags", res.data);
       })
       .catch(err => {
-        console.error(err);
+        console.log(err.response);
       });
   },
   async fetchTagByTagId({ commit }, q) {
@@ -43,7 +42,7 @@ export const actions = {
         commit("setTags", res.data);
       })
       .catch(err => {
-        console.error(err);
+        console.log(err.response);
       });
   },
   async fetchTagByTagName({ commit }, q) {
@@ -54,7 +53,7 @@ export const actions = {
         commit("setTags", res.data);
       })
       .catch(err => {
-        console.error(err);
+        console.log(err.response);
       });
   },
   async addTag({ commit }, data) {

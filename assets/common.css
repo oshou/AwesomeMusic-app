@@ -25,6 +25,10 @@
   border-radius: 20px;
 }
 
+#login-button {
+  border-radius: 20px;
+}
+
 #logout button {
   border-radius: 20px;
 }

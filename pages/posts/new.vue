@@ -2,8 +2,6 @@
   <div class="uk-container-expand" id="add_post">
     <div uk-grid class="uk-child-width-expand">
       <h2>新規投稿</h2>
-      <p>{{ $store.getters['posts/getNewPost']}}</p>
-      <p>{{ $store.getters['tags/getNewTag']}}</p>
     </div>
     <div uk-grid class="uk-child-width-1-2@s">
       <form class="uk-form-stacked" @submit.prevent="doPost">
@@ -75,29 +73,29 @@ export default {
     ...mapActions({
       addPost: "posts/addPost"
     }),
-    doPost() {
+    async doPost() {
       if (
         this.formInput.title != "" &&
         this.formInput.url != "" &&
         this.formInput.tags != "" &&
         this.formInput.message != ""
       ) {
-        const postInput = {
+        // 投稿追加
+        await this.$store.dispatch("posts/addPost", {
           user_id: 1,
           title: this.formInput.title,
           url: this.formInput.url,
           message: this.formInput.message
-        };
-        this.$store.dispatch("posts/addPost", postInput);
-
+        });
         const tags = this.formInput.tags.split(",");
-        for (let value of tags) {
-          this.$store.dispatch("tags/addTag", value);
-          const tagInput = {
-            post_id: this.newPost,
-            tag_id: this.newTag
-          };
-          this.$store.dispatch("tags/attachTag", tagInput);
+        for (let tag of tags) {
+          // 新規タグ追加
+          await this.$store.dispatch("tags/addTag", tag);
+          // 新規投稿に新規タグ登録
+          await this.$store.dispatch("tags/attachTag", {
+            post_id: this.$store.state.posts.newPost.id,
+            tag_id: this.$store.state.tags.newTag.id
+          });
         }
         this.$router.push("/");
       }

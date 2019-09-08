@@ -14,7 +14,7 @@
         </div>
         <div v-else id="login">
           <nuxt-link to="/login">
-            <button class="uk-button uk-button-primary">
+            <button id="login-button" class="uk-button uk-button-primary">
               <span uk-icon="sign-in"></span> Login
             </button>
           </nuxt-link>

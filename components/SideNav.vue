@@ -5,7 +5,12 @@
       <div id="search">
         <form class="uk-search uk-search-navbar">
           <span uk-search-icon></span>
-          <input class="uk-search-input" type="search" placeholder="検索したいキーワードを入力" />
+          <input
+            class="uk-search-input"
+            type="search"
+            placeholder="検索したいキーワードを入力"
+            @keyup.enter.native="search()"
+          />/>
         </form>
       </div>
 
@@ -27,7 +32,7 @@
               <span uk-icon="tag"></span> Tags
             </nuxt-link>
           </li>
-          <li id="add_post">
+          <li id="new_post">
             <nuxt-link to="/posts/new">
               <span uk-icon="plus"></span> Add Post
             </nuxt-link>
@@ -37,6 +42,21 @@
     </div>
   </div>
 </template>
+
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  methods: {
+    search() {
+      this.$router.push({
+        path: "/search",
+        query: { q: $search }
+      });
+    }
+  }
+};
+</script>
 
 <style>
 #sidenav {
@@ -55,7 +75,7 @@
 #search form {
   border: 1px;
   border-radius: 20px;
-  background-color: whitesmoke;
+  background-color: rgb(128, 119, 119);
   width: 260px;
   margin-bottom: 15px;
 }
@@ -70,7 +90,7 @@
   margin-top: 15px;
 }
 
-#add_post {
+#new_post {
   margin-top: 50px;
 }
 </style>

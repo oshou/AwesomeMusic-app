@@ -54,16 +54,6 @@ export const actions = {
         }
       })
       .then(res => {
-        //const tags = this.formInput.tags.split(",");
-        //for (let value of tags) {
-        //  this.$store.dispatch("tags/addTag", value);
-        //  const tagInput = {
-        //    post_id: res.data.id,
-        //    tag_id: this.newTag
-        //  };
-        //  console.log("inpu: " + tagInput);
-        //  this.$store.dispatch("tags/attachTag", tagInput);
-        //}
         console.log(res);
         commit("setNewPost", res.data);
       })
