@@ -1,9 +1,7 @@
 <template>
   <div class="uk-container-expand" id="posts">
     <div uk-grid class="uk-child-width-expand">
-      <h2>user_id: {{ $route.params.id }}の投稿</h2>
-      <br />
-      <hr />
+      <h2>ユーザ: {{ $store.getters['users/getUsers'].name }}の投稿</h2>
     </div>
     <div uk-grid class="uk-child-width-1-2@s">
       <div v-for="post in $store.getters['posts/getPosts']" v-bind:key="post.id">
@@ -23,8 +21,15 @@
             <p>{{ post.message }}</p>
           </div>
           <div class="uk-card-footer">
-            <div id="modal">
-              <a href="#" class="uk-button uk-button-text">5 Comments</a>
+            <div uk-grid>
+              <div class="uk-width-auto">
+                <p>xxx / xxx / xxx</p>
+              </div>
+              <div class="uk-width-expand">
+                <nuxt-link v-bind:to="{name: 'posts-id-comments',params:{id:post.id}}">
+                  <span uk-icon="icon: comments; ratio: 1.0"></span>
+                </nuxt-link>
+              </div>
             </div>
           </div>
         </div>
@@ -43,11 +48,13 @@ export default {
     };
   },
   created() {
-    return this.fetchPostsByUserId(this.$route.params.id);
+    this.fetchPostsByUserId(this.$route.params.id);
+    this.fetchUserByUserId(this.$route.params.id);
   },
   methods: {
     ...mapActions({
-      fetchPostsByUserId: "posts/fetchPostsByUserId"
+      fetchPostsByUserId: "posts/fetchPostsByUserId",
+      fetchUserByUserId: "users/fetchUserByUserId"
     })
   }
 };

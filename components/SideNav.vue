@@ -14,7 +14,7 @@
         <ul class="uk-nav uk-nav-default">
           <li>
             <nuxt-link to="/posts">
-              <span uk-icon="comments"></span> Posts
+              <span uk-icon="play"></span> Posts
             </nuxt-link>
           </li>
           <li>
@@ -28,7 +28,7 @@
             </nuxt-link>
           </li>
           <li id="add_post">
-            <nuxt-link to="/newposts">
+            <nuxt-link to="/posts/new">
               <span uk-icon="plus"></span> Add Post
             </nuxt-link>
           </li>

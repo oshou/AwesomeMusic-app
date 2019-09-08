@@ -21,9 +21,9 @@ export const actions = {
     console.log("debug: fetchUsers done");
     commit("setUsers", res.data);
   },
-  async fetchUsersById({ commit }, q) {
-    const res = await axios.get(API_URL + "/v1/search?type=user_id&q=" + q);
-    console.log("debug: fetchUsersFiltered done");
+  async fetchUserByUserId({ commit }, q) {
+    const res = await axios.get(API_URL + "/v1/users/" + q);
+    console.log("debug: fetchUserByUserId done");
     commit("setUsers", res.data);
   }
 };

@@ -18,8 +18,15 @@
             <p>{{ post.message }}</p>
           </div>
           <div class="uk-card-footer">
-            <div id="modal">
-              <a href="#" class="uk-button uk-button-text">5 Comments</a>
+            <div uk-grid>
+              <div class="uk-width-auto">
+                <p>xxx / xxx / xxx</p>
+              </div>
+              <div class="uk-width-expand">
+                <nuxt-link v-bind:to="{name: 'posts-id-comments',params:{id:post.id}}">
+                  <span uk-icon="icon: comments; ratio: 1.0"></span>
+                </nuxt-link>
+              </div>
             </div>
           </div>
         </div>

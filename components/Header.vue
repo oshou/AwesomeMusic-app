@@ -7,14 +7,16 @@
         </nuxt-link>
       </div>
       <div class="uk-width-1-2@m uk-text-right">
-        <div v-if="loggedIn()">
-          <nuxt-link to="/logout">
-            <button class="uk-button uk-button-primary">Logout</button>
-          </nuxt-link>
+        <div id="logout" v-if="loggedIn()">
+          <button class="uk-button uk-button-primary">
+            <span uk-icon="sign-out"></span> Login
+          </button>
         </div>
-        <div v-else>
+        <div v-else id="login">
           <nuxt-link to="/login">
-            <button class="uk-button uk-button-primary">Login</button>
+            <button class="uk-button uk-button-primary">
+              <span uk-icon="sign-in"></span> Login
+            </button>
           </nuxt-link>
         </div>
       </div>

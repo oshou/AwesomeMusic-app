@@ -1,7 +1,7 @@
 <template>
   <div class="uk-container-expand" id="posts">
     <div uk-grid class="uk-child-width-expand">
-      <h2>tag_id: {{ $route.params.id }}の投稿</h2>
+      <h2>タグ: {{ $store.getters['tags/getTags'].name }} の投稿</h2>
     </div>
     <div uk-grid class="uk-child-width-1-2@s">
       <div v-for="post in $store.getters['posts/getPosts']" v-bind:key="post.id">
@@ -21,16 +21,15 @@
             <p>{{ post.message }}</p>
           </div>
           <div class="uk-card-footer">
-            <div class="uk-width-auto">
-              <a href="#" class="uk-button">
-                <span uk-icon="icon: comments; ratio: 1.0"></span>
-              </a>
-              <a href="#" class="uk-button">
-                <span uk-icon="icon: comments; ratio: 1.0"></span>
-              </a>
-              <a href="#" class="uk-button">
-                <span uk-icon="icon: plus; ratio: 1.0"></span>
-              </a>
+            <div uk-grid>
+              <div class="uk-width-auto">
+                <p>xxx / xxx / xxx</p>
+              </div>
+              <div class="uk-width-expand">
+                <nuxt-link v-bind:to="{name: 'posts-id-comments',params:{id:post.id}}">
+                  <span uk-icon="icon: comments; ratio: 1.0"></span>
+                </nuxt-link>
+              </div>
             </div>
           </div>
         </div>
@@ -49,11 +48,13 @@ export default {
     };
   },
   created() {
-    return this.fetchPostsByTagId(this.$route.params.id);
+    this.fetchPostsByTagId(this.$route.params.id);
+    this.fetchTagByTagId(this.$route.params.id);
   },
   methods: {
     ...mapActions({
-      fetchPostsByTagId: "posts/fetchPostsByTagId"
+      fetchPostsByTagId: "posts/fetchPostsByTagId",
+      fetchTagByTagId: "tags/fetchTagByTagId"
     })
   }
 };
