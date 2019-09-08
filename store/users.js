@@ -17,14 +17,26 @@ export const getters = {
 // 状態の更新処理
 export const actions = {
   async fetchUsers({ commit }) {
-    const res = await axios.get(API_URL + "/v1/users");
-    console.log("debug: fetchUsers done");
-    commit("setUsers", res.data);
+    await axios
+      .get(API_URL + "/v1/users")
+      .then(res => {
+        console.log("debug: fetchUsers done");
+        commit("setUsers", res.data);
+      })
+      .catch(err => {
+        console.error(err);
+      });
   },
   async fetchUserByUserId({ commit }, q) {
-    const res = await axios.get(API_URL + "/v1/users/" + q);
-    console.log("debug: fetchUserByUserId done");
-    commit("setUsers", res.data);
+    await axios
+      .get(API_URL + "/v1/users/" + q)
+      .then(res => {
+        console.log("debug: fetchUserByUserId done");
+        commit("setUsers", res.data);
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 };
 

@@ -17,12 +17,18 @@ export const getters = {
 // 状態の更新
 export const actions = {
   async fetchComments({ commit }, data) {
-    const res = await axios.get(API_URL + "/v1/posts/" + data + "/comments");
-    console.log("debug: fetchComments done");
-    commit("setComments", res.data);
+    await axios
+      .get(API_URL + "/v1/posts/" + data + "/comments")
+      .then(res => {
+        console.log("debug: fetchComments done");
+        commit("setComments", res.data);
+      })
+      .catch(err => {
+        console.error(err);
+      });
   },
   async addComment({ commit }, data) {
-    const res = await axios.post(
+    await axios.post(
       API_URL + "/v1/posts/" + data.post_id + "/comments",
       null,
       {
@@ -31,8 +37,14 @@ export const actions = {
           comment: data.comment
         }
       }
+        .then(res => {
+          console.log(res.data);
+          commit("setComments", res.data);
+        })
+        .catch(err => {
+          console.error(err);
+        })
     );
-    commit("setComments", res.data);
   }
 };
 

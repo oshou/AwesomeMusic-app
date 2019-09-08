@@ -8,6 +8,16 @@ export const state = () => ({
   newPost: []
 });
 
+// 状態の参照
+export const getters = {
+  getPosts(state) {
+    return state.posts;
+  },
+  getNewPost(state) {
+    return state.newPost;
+  }
+};
+
 // 状態の更新処理
 export const actions = {
   async fetchPosts({ commit }) {
@@ -70,15 +80,5 @@ export const mutations = {
   },
   setNewPost(state, val) {
     state.newPost = val;
-  }
-};
-
-// 状態の参照
-export const getters = {
-  getPosts(state) {
-    return state.posts;
-  },
-  getNewPost(state) {
-    return state.newPost;
   }
 };
