@@ -1,6 +1,7 @@
 <template>
   <div class="uk-container-expand" id="posts">
-    <div uk-grid class="uk-child-width-1-3@s">
+    <!-- Content -->
+    <div uk-grid class="uk-child-width-1-2">
       <div v-for="post in $store.getters['posts/getPosts']" v-bind:key="post.id">
         <div class="uk-card uk-card-small uk-card-default uk-column-span">
           <div class="uk-card-header">

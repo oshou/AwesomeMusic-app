@@ -57,7 +57,7 @@ export default {
   methods: {
     async search() {
       this.$router.push({
-        path: "/v1/search",
+        path: "/search",
         query: { q: this.formInput.keyword }
       });
     }

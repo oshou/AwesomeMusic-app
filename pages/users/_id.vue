@@ -1,9 +1,11 @@
 <template>
   <div class="uk-container-expand" id="posts">
+    <!-- Heading -->
     <div uk-grid class="uk-child-width-expand">
       <h2>ユーザ: {{ $store.getters['users/getUsers'].name }}の投稿</h2>
     </div>
-    <div uk-grid class="uk-child-width-1-2@s">
+    <!-- Content -->
+    <div uk-grid class="uk-child-width-1-2">
       <div v-for="post in $store.getters['posts/getPosts']" v-bind:key="post.id">
         <div class="uk-card uk-card-small uk-card-default uk-column-span">
           <div class="uk-card-header">
