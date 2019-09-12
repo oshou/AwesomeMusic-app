@@ -58,7 +58,7 @@ export default {
     async search() {
       this.$router.push({
         path: "/search",
-        query: { q: this.formInput.keyword }
+        query: { type: "post_title", q: this.formInput.keyword }
       });
     }
   }
@@ -81,7 +81,7 @@ export default {
 
 #search form {
   border: 1px;
-  border-radius: 20px;
+  border-radius: 15px;
   background-color: whitesmoke;
   width: 260px;
   margin-bottom: 15px;
