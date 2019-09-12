@@ -21,7 +21,7 @@
           <label class="uk-form-label">message</label>
           <input type="text" v-model="formInput.message" name="message" class="uk-input" />
         </div>
-        <div class="uk-margin">
+        <div class="uk-margin-medium-bottom">
           <button type="submit" class="uk-button uk-button-default">
             <span uk-icon="icon: plus; ratio: 1.0"></span>投稿
           </button>
@@ -79,3 +79,13 @@ export default {
   }
 };
 </script>
+
+<style>
+.uk-input {
+  border-radius: 15px;
+}
+
+.uk-button {
+  border-radius: 15px;
+}
+</style>
