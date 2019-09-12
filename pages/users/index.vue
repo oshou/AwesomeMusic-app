@@ -25,11 +25,6 @@
 import { mapActions } from "vuex";
 
 export default {
-  data: function() {
-    return {
-      users: []
-    };
-  },
   created() {
     return this.fetchUsers();
   },
