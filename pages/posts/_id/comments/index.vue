@@ -1,5 +1,8 @@
 <template>
   <div class="uk-container-expand" id="comments">
+    <div uk-grid class="uk-margin-small-bottom">
+      <h2>投稿: {{ $store.getters['posts/getPosts'].title }} のコメント</h2>
+    </div>
     <div uk-grid class="uk-child-width-1-1@s">
       <div v-for="comment in $store.getters['comments/getComments']" v-bind:key="comment.id">
         <div class="uk-card uk-card-small uk-card-default uk-column-span">
@@ -37,10 +40,12 @@ export default {
     };
   },
   created() {
-    return this.fetchComments(this.$route.params.id);
+    this.fetchComments(this.$route.params.id);
+    this.fetchPostByPostId(this.$route.params.id);
   },
   methods: {
     ...mapActions({
+      fetchPostByPostId: "posts/fetchPostByPostId",
       fetchComments: "comments/fetchComments",
       addComment: "comments/addComment"
     }),
