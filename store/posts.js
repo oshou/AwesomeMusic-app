@@ -31,6 +31,28 @@ export const actions = {
         console.error(err);
       });
   },
+  async fetchPostByPostId({ commit }, q) {
+    await axios
+      .get(API_URL + "/v1/posts/" + q)
+      .then(res => {
+        console.log(res.data);
+        commit("setPosts", res.data);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  },
+  async fetchPostsByPostTitle({ commit }, q) {
+    await axios
+      .get(API_URL + "/v1/search?type=post_title&q=" + q)
+      .then(res => {
+        console.log(res.data);
+        commit("setPosts", res.data);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  },
   async fetchPostsByUserId({ commit }, q) {
     await axios
       .get(API_URL + "/v1/search?type=user_id&q=" + q)
@@ -42,9 +64,31 @@ export const actions = {
         console.error(err);
       });
   },
+  async fetchPostsByUserName({ commit }, q) {
+    await axios
+      .get(API_URL + "/v1/search?type=user_name&q=" + q)
+      .then(res => {
+        console.log(res.data);
+        commit("setPosts", res.data);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  },
   async fetchPostsByTagId({ commit }, q) {
     await axios
       .get(API_URL + "/v1/search?type=tag_id&q=" + q)
+      .then(res => {
+        console.log(res.data);
+        commit("setPosts", res.data);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  },
+  async fetchPostsByTagName({ commit }, q) {
+    await axios
+      .get(API_URL + "/v1/search?type=tag_name&q=" + q)
       .then(res => {
         console.log(res.data);
         commit("setPosts", res.data);

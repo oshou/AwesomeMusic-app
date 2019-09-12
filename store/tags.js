@@ -31,7 +31,7 @@ export const actions = {
         commit("setTags", res.data);
       })
       .catch(err => {
-        console.log(err.response);
+        console.error(err);
       });
   },
   async fetchTagByTagId({ commit }, q) {
@@ -42,7 +42,7 @@ export const actions = {
         commit("setTags", res.data);
       })
       .catch(err => {
-        console.log(err.response);
+        console.error(err);
       });
   },
   async fetchTagByTagName({ commit }, q) {
@@ -53,7 +53,7 @@ export const actions = {
         commit("setTags", res.data);
       })
       .catch(err => {
-        console.log(err.response);
+        console.error(err);
       });
   },
   async addTag({ commit }, data) {
@@ -68,7 +68,18 @@ export const actions = {
         commit("setNewTag", res.data);
       })
       .catch(err => {
-        console.log(err.response);
+        console.error(err);
+      });
+  },
+  async fetchTagByPostId({ commit }, data) {
+    await axios
+      .get(API_URL + "/v1/posts/" + data.post_id + "/tags")
+      .then(res => {
+        console.log(res.data);
+        commit("setTags", res.data);
+      })
+      .catch(err => {
+        console.error(err);
       });
   },
   async attachTag({ commit }, data) {
@@ -82,7 +93,7 @@ export const actions = {
         commit("setNewTagAttach", res.data);
       })
       .catch(err => {
-        console.log(err.response);
+        console.error(err);
       });
   }
 };
