@@ -14,10 +14,12 @@ export default {
   },
   created() {
     this.fetchPosts();
+    this.fetchTags();
   },
   methods: {
     ...mapActions({
-      fetchPosts: "posts/fetchPosts"
+      fetchPosts: "posts/fetchPosts",
+      fetchTags: "tags/fetchTags"
     })
   }
 };

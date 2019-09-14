@@ -2,13 +2,17 @@
   <div id="container">
     <ul class="uk-child-width-expand" uk-tab>
       <li class="uk-active">
-        <nuxt-link v-bind:to="{name: 'search',params:{type:post_title,q:$route.query.q}}">投稿タイトル</nuxt-link>
+        <nuxt-link
+          v-bind:to="{ path: 'search', query : {type:'post_title', q:$route.query.q}}"
+        >投稿タイトル</nuxt-link>
       </li>
       <li>
-        <nuxt-link v-bind:to="{name: 'search',params:{type:user_name,q:$route.query.q}}">ユーザー名</nuxt-link>
+        <nuxt-link
+          v-bind:to="{ path : 'search', query : {type:'user_name', q:$route.query.q}}"
+        >ユーザー名</nuxt-link>
       </li>
       <li>
-        <nuxt-link v-bind:to="{name: 'search',params:{type:tag_name,q:$route.query.q}}">タグ名</nuxt-link>
+        <nuxt-link v-bind:to="{ path: 'search', query : {type:'tag_name', q:$route.query.q}}">タグ名</nuxt-link>
       </li>
     </ul>
     <PostWrapper />
@@ -23,8 +27,7 @@ export default {
   components: {
     PostWrapper
   },
-  computed() {},
-  created() {
+  updated() {
     const search_type = this.$route.query.type;
     const q = this.$route.query.q;
 
@@ -49,7 +52,7 @@ export default {
     ...mapActions({
       fetchPostsByPostTitle: "posts/fetchPostsByPostTitle",
       fetchPostsByTagName: "posts/fetchPostsByTagName",
-      fetchPostsByUserName: "posts/fetchTagByUserName"
+      fetchPostsByUserName: "posts/fetchPostsByUserName"
     })
   }
 };
