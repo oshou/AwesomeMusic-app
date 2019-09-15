@@ -60,6 +60,7 @@ export default {
         path: "/search",
         query: { type: "post_title", q: this.formInput.keyword }
       });
+      this.formInput.keyword = "";
     }
   }
 };
