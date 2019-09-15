@@ -55,7 +55,7 @@ export const actions = {
   },
   async fetchPostsByUserId({ commit }, q) {
     await axios
-      .get(API_URL + "/v1/search?type=user_id&q=" + q)
+      .get(API_URL + "/v1/users/" + q + "/posts")
       .then(res => {
         console.log(res.data);
         commit("setPosts", res.data);
@@ -77,7 +77,7 @@ export const actions = {
   },
   async fetchPostsByTagId({ commit }, q) {
     await axios
-      .get(API_URL + "/v1/search?type=tag_id&q=" + q)
+      .get(API_URL + "/v1/tags/" + q + "/posts")
       .then(res => {
         console.log(res.data);
         commit("setPosts", res.data);
