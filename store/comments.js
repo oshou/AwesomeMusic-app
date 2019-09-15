@@ -20,7 +20,6 @@ export const actions = {
     await axios
       .get(API_URL + "/v1/posts/" + data + "/comments")
       .then(res => {
-        console.log("debug: fetchComments done");
         commit("setComments", res.data);
       })
       .catch(err => {
@@ -38,7 +37,6 @@ export const actions = {
         }
       }
         .then(res => {
-          console.log(res.data);
           commit("setComments", res.data);
         })
         .catch(err => {

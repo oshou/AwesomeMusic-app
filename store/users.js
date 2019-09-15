@@ -20,7 +20,6 @@ export const actions = {
     await axios
       .get(API_URL + "/v1/users")
       .then(res => {
-        console.log("debug: fetchUsers done");
         commit("setUsers", res.data);
       })
       .catch(err => {
@@ -31,7 +30,6 @@ export const actions = {
     await axios
       .get(API_URL + "/v1/users/" + q)
       .then(res => {
-        console.log("debug: fetchUserByUserId done");
         commit("setUsers", res.data);
       })
       .catch(err => {
@@ -42,7 +40,6 @@ export const actions = {
     await axios
       .get(API_URL + "/v1/search?type=user_name&q=" + q)
       .then(res => {
-        console.log("debug: fetchUserByUserName done");
         commit("setUsers", res.data);
       })
       .catch(err => {

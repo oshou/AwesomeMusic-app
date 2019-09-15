@@ -27,7 +27,6 @@ export const actions = {
     await axios
       .get(API_URL + "/v1/tags")
       .then(res => {
-        console.log(res.data);
         commit("setTags", res.data);
       })
       .catch(err => {
@@ -38,7 +37,6 @@ export const actions = {
     await axios
       .get(API_URL + "/v1/tags/" + q)
       .then(res => {
-        console.log(res.data);
         commit("setTags", res.data);
       })
       .catch(err => {
@@ -49,7 +47,6 @@ export const actions = {
     await axios
       .get(API_URL + "/v1/search?type=tag_name&q=" + q)
       .then(res => {
-        console.log(res.data);
         commit("setTags", res.data);
       })
       .catch(err => {
@@ -60,7 +57,6 @@ export const actions = {
     await axios
       .get(API_URL + "/v1/posts/" + data.post_id + "/tags")
       .then(res => {
-        console.log(res.data);
         commit("setTags", res.data);
       })
       .catch(err => {
@@ -75,7 +71,6 @@ export const actions = {
         }
       })
       .then(res => {
-        console.log(res.data);
         commit("setNewTag", res.data);
       })
       .catch(err => {
@@ -89,7 +84,6 @@ export const actions = {
         null
       )
       .then(res => {
-        console.log(res.data);
         commit("setNewTagAttach", res.data);
       })
       .catch(err => {
