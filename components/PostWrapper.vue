@@ -20,9 +20,11 @@
           <div class="uk-card-footer">
             <div uk-grid>
               <div class="uk-width-auto">
+                <!--
                 <div v-for="tag in tags" v-bind:key="tag.id">
                   <a :href="`/tags/${tag.id}`">{{tag.name}}</a> /
                 </div>
+                -->
               </div>
               <div class="uk-width-expand">
                 <nuxt-link v-bind:to="{name: 'posts-id-comments',params:{id:post.id}}">

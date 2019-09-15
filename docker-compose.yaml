@@ -2,7 +2,7 @@ version: "3"
 services:
   web:
     build: .
-    #image: oshou/awesome-music-front:latest
+    image: oshou/awesome-music-front:latest
     ports:
       - 3000:3000
     env_file: .env
