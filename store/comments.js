@@ -27,22 +27,19 @@ export const actions = {
       });
   },
   async addComment({ commit }, data) {
-    await axios.post(
-      API_URL + "/v1/posts/" + data.post_id + "/comments",
-      null,
-      {
+    await axios
+      .post(API_URL + "/v1/posts/" + data.post_id + "/comments", null, {
         params: {
           user_id: data.user_id,
           comment: data.comment
         }
-      }
-        .then(res => {
-          commit("setComments", res.data);
-        })
-        .catch(err => {
-          console.error(err);
-        })
-    );
+      })
+      .then(res => {
+        commit("setComments", res.data);
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 };
 
