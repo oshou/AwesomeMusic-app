@@ -3,7 +3,7 @@
     <div uk-grid class="uk-margin-small-bottom">
       <h2>投稿: {{ $store.getters['posts/getPosts'].title }} のコメント</h2>
     </div>
-    <div uk-grid class="uk-child-width-1-1@s">
+    <div uk-grid class="uk-child-width-1-1">
       <div v-for="comment in $store.getters['comments/getComments']" v-bind:key="comment.id">
         <div class="uk-card uk-card-small uk-card-default uk-column-span">
           <div class="uk-card-header">
@@ -18,13 +18,19 @@
           </div>
         </div>
       </div>
-      <form @submit.prevent="addComment">
-        <p>
-          comment:
-          <input type="text" v-model="formInput.comment" name="comment" />
-        </p>
-        <button type="submit">投稿</button>
-      </form>
+      <div uk-grid class="uk-child-width-1-2">
+        <form class="uk-from-stacked" @submit.prevent="addComment">
+          <div class="uk-margin">
+            <label class="uk-form-label">Comment</label>
+            <input type="text" v-model="formInput.comment" name="comment" class="uk-input" />
+          </div>
+          <div class="uk-margin-medium-bottom">
+            <button type="submit" class="uk-button uk-button-default">
+              <span uk-icon="icon: plus; ratio: 1.0"></span>投稿
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -55,6 +61,9 @@ export default {
         post_id: this.$route.params.id,
         comment: this.formInput.comment
       };
+      console.log(input.user_id);
+      console.log(input.post_id);
+      console.log(input.comment);
       await this.$store.dispatch("comments/addComment", input);
     }
   }

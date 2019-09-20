@@ -3,7 +3,7 @@
     <div uk-grid class="uk-child-width-expand">
       <h2>新規投稿</h2>
     </div>
-    <div uk-grid class="uk-child-width-1-2@s">
+    <div uk-grid class="uk-child-width-1-2">
       <form class="uk-form-stacked" @submit.prevent="doPost">
         <div class="uk-margin">
           <label class="uk-form-label">Title</label>

@@ -1,6 +1,6 @@
 <template>
   <div class="uk-container-expand" id="users">
-    <div uk-grid class="uk-child-width-1-3@s">
+    <div uk-grid class="uk-child-width-1-3">
       <div v-for="user in users" v-bind:key="user.id">
         <nuxt-link v-bind:to="{ name: 'users-id', params: { id: user.id }}">
           <div class="uk-card uk-card-default uk-card-small">
@@ -38,4 +38,3 @@ export default {
   }
 };
 </script>
-
